@@ -19,12 +19,14 @@ This JavaScript module can be installed either within the default HTML5 viewer o
 	1. Make a backup of the configuration file!
 	2. Within the libraries section add the following code:
 
+        ```
         {
           "id": "MenuComponents",
             "uri": "{ViewerConfigUri}../../Custom Scripts/MenuComponents.js",
             "locales":[
             ]
         }
+        ```
 
     3. Within the libraries section add the following code:
 
