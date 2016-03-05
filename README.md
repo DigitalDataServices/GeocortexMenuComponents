@@ -12,12 +12,13 @@ This JavaScript module can be installed either within the default HTML5 viewer o
 
 1. Locate your Geocortex HTML5 Site directory, typically found at `C:\Program Files (x86)\Latitude Geographics\Geocortex Essentials\Default\REST Elements\Sites\`
 2. Navigate to the Site HTML5 Virtual Directory, typically found at `...\YourSiteName\Viewers\YourHTML5ViewerName\VirtualDirectory\`
-3. In the Resources directory create a new directory called CustomScripts
-4. Copy the MenuComponents.js file into the CustomScripts directory
-5. Next locate the Desktop, Tablet, and Handheld configuration files, typically located at \Resources\Config\Default\ directory.
-6. Repeat the following steps for all three configuration files:
+3. In the `Resources` directory create a new directory called `CustomScripts`
+4. Copy the `MenuComponents.js` file into the `CustomScripts` directory
+5. Next locate the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located at `...\Resources\Config\Default\` directory.
+6. Repeat the following steps for all three configuration files (`Desktop`, `Tablet`, and `Handheld`):
 	1. Make a backup of the configuration file!
-	2. Within the libraries section add the following code:
+	2. Open the configuration file in a file editor of your choice, such as Notepad++
+	3. Within the `libraries` section add the following code where the `uri` is the relative path to the `MenuComponents.js` file.
 
         ```
         {
@@ -28,35 +29,37 @@ This JavaScript module can be installed either within the default HTML5 viewer o
         }
         ```
 
-    3. Within the libraries section add the following code:
-
-    {
-      "moduleName": "MenuComponents",
-      "moduleType": "dds.menuComponents.MenuComponentsModule",
-      "libraryId": "MenuComponents",
-      "configuration": {
-      },
-      "views": [
+    4. Within the `modules` section add the following code:
+    
+        ```
         {
-          "id": "MenuComponentsModuleView",
-          "viewModelId": "MenuComponentsModuleViewModel",
-          "visible": false,
-          "markup": "Modules/View/MenuComponentsModuleView.html",
-          "type": "dds.menuComponents.MenuComponentsModuleView",
-          "region": "TopRightMapRegion",
+          "moduleName": "MenuComponents",
+          "moduleType": "dds.menuComponents.MenuComponentsModule",
+          "libraryId": "MenuComponents",
           "configuration": {
-          }
-        }
-      ],
-      "viewModels": [
-        {
-          "id": "MenuComponentsModuleViewModel",
-          "type": "dds.menuComponents.MenuComponentsModuleViewModel",
-          "configuration": {}
-        }
-      ]
-    },
-
+          },
+          "views": [
+            {
+              "id": "MenuComponentsModuleView",
+              "viewModelId": "MenuComponentsModuleViewModel",
+              "visible": false,
+              "markup": "Modules/View/MenuComponentsModuleView.html",
+              "type": "dds.menuComponents.MenuComponentsModuleView",
+              "region": "TopRightMapRegion",
+              "configuration": {
+              }
+            }
+          ],
+          "viewModels": [
+            {
+              "id": "MenuComponentsModuleViewModel",
+              "type": "dds.menuComponents.MenuComponentsModuleViewModel",
+              "configuration": {}
+              }
+          ]
+        },
+        ```
+    4. Save the configuration file. *These modifications should be made to all relevant configuration files.*
 
 ## Usage
 
