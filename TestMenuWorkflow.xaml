@@ -1,0 +1,383 @@
+﻿<Activity mc:Ignorable="sads sap sap2010" x:Class="ActivityBuilder"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:eac="clr-namespace:ESRI.ArcGIS.Client;assembly=ESRI.ArcGIS.Client"
+ xmlns:eacg="clr-namespace:ESRI.ArcGIS.Client.Geometry;assembly=ESRI.ArcGIS.Client"
+ xmlns:eact="clr-namespace:ESRI.ArcGIS.Client.Tasks;assembly=ESRI.ArcGIS.Client"
+ xmlns:gce="clr-namespace:Geocortex.Core.Extensions;assembly=Geocortex.Core"
+ xmlns:gfc="clr-namespace:Geocortex.Forms.Client;assembly=Geocortex.EssentialsWpfApi"
+ xmlns:gfci="clr-namespace:Geocortex.Forms.Client.Items;assembly=Geocortex.EssentialsWpfApi"
+ xmlns:gr="clr-namespace:Geocortex.Reporting;assembly=Geocortex.Reporting"
+ xmlns:gwa="clr-namespace:Geocortex.Workflow.Activities;assembly=Geocortex.Workflow"
+ xmlns:gwa1="clr-namespace:Geocortex.Workflow.Activities;assembly=Geocortex.Workflow.Activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=System.Core"
+ xmlns:s1="clr-namespace:System;assembly=System"
+ xmlns:s2="clr-namespace:System;assembly=mscorlib"
+ xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="argument1" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>ESRI.ArcGIS.Client</x:String>
+      <x:String>ESRI.ArcGIS.Client.Geometry</x:String>
+      <x:String>ESRI.ArcGIS.Client.Tasks</x:String>
+      <x:String>Geocortex.Core.Extensions</x:String>
+      <x:String>Geocortex.Workflow.Activities</x:String>
+      <x:String>Geocortex.Forms.Client</x:String>
+      <x:String>Geocortex.Forms.Client.Items</x:String>
+      <x:String>Geocortex.Reporting</x:String>
+      <x:String>System</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>ESRI.ArcGIS.Client</AssemblyReference>
+      <AssemblyReference>Geocortex.Core</AssemblyReference>
+      <AssemblyReference>Geocortex.Workflow</AssemblyReference>
+      <AssemblyReference>Geocortex.EssentialsWpfApi</AssemblyReference>
+      <AssemblyReference>Geocortex.Reporting</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Reactive.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="You can run the individual tests in the Workflow by changing the 'If' conditional statements from 'False' to 'True' (and vice-versa).  *** Initially, all the test are turned-off (set to 'False') - and must be enabled to test ***" DisplayName="DDS - Menu / Toolbar Demo" sap2010:WorkflowViewState.IdRef="Sequence_1" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s2:String[]" Name="strMenuItemArray" />
+      <Variable x:TypeArguments="s2:String[]" Name="strToolItemArray" />
+    </Sequence.Variables>
+    <If sap2010:Annotation.AnnotationText="This section tests removing and re-adding items to the 'I want to...' Menu.  Change the 'If' condition to 'True' to test" Condition="False" DisplayName="'I want to' Menu" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Assign sap2010:Annotation.AnnotationText="Remove the 'View the Home Panel' and 'Return to initial map extent' items from the 'I want to...' Menu" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s2:String[]">[strMenuItemArray]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s2:String[]">[New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <gwa1:RunExternalCommand CommandName="HideIWantToMenuItems" CommandParameter="[strMenuItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_1" />
+          <If Condition="False" DisplayName="Re-add the items back to the Menu (change to 'True')" sap2010:WorkflowViewState.IdRef="If_4">
+            <If.Then>
+              <gwa1:RunExternalCommand CommandName="ShowIWantToMenuItems" CommandParameter="[strMenuItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_2" />
+            </If.Then>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If sap2010:Annotation.AnnotationText="This section tests removing and re-adding items to the 'Results' Menu.  The 'Results' Menu is displayed as a result of a search or identify operation.  Change the 'If' condition to 'True' to test" Condition="False" DisplayName="'Result's Menu" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Assign sap2010:Annotation.AnnotationText="Remove the 'Export to CSV' and 'Export to XLSX' items from the 'Results' Menu" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s2:String[]">[strMenuItemArray]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s2:String[]">[New String(){ "@language-menu-export-results-to-csv", "@language-menu-export-results-to-xlsx" }]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <gwa1:RunExternalCommand CommandName="HideResultMenuItems" CommandParameter="[strMenuItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_3" />
+          <If Condition="False" DisplayName="Restore the items (set to 'True')" sap2010:WorkflowViewState.IdRef="If_5">
+            <If.Then>
+              <gwa1:RunExternalCommand CommandName="ShowResultMenuItems" CommandParameter="[strMenuItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_4" />
+            </If.Then>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If sap2010:Annotation.AnnotationText="This section tests removing and re-adding items to the 'Compact' Toolbar.  The 'Compact' toolbar must be turned on in the Geocortex Essentials Manager to see the test results (since the Viewer Toolbar defaults to 'Full' mode).  Change the 'If' condition to 'True' to test" Condition="False" DisplayName="Compact Toolbar" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Assign sap2010:Annotation.AnnotationText="Remove the 'Home' and 'the 'Initial View' items from the Compact Toobar" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s2:String[]">[strToolItemArray]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s2:String[]">[New String(){ "@language-toolbar-home-sub", "@language-toolbar-navigation-initial-extent" }]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <gwa1:RunExternalCommand CommandName="HideToolbarItems" CommandParameter="[strToolItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_5" />
+          <If Condition="False" DisplayName="Re-add the items back (set to 'True')" sap2010:WorkflowViewState.IdRef="If_13">
+            <If.Then>
+              <gwa1:RunExternalCommand CommandName="ShowToolbarItems" CommandParameter="[strToolItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_8" />
+            </If.Then>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If sap2010:Annotation.AnnotationText="This section tests removing and re-adding tabs to the standard 'Full' Toolbar.  Change the 'If' condition to 'True' to test" Condition="False" DisplayName="Full Toolbar - Tabs" sap2010:WorkflowViewState.IdRef="If_6">
+      <If.Then>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Assign sap2010:Annotation.AnnotationText="Remove the 'Tools' tab from the Full Toobar" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="s2:String[]">[strToolItemArray]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="s2:String[]">[New String(){ "@language-toolbar-group-tools" }]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <gwa1:RunExternalCommand CommandName="HideToolbarTabs" CommandParameter="[strToolItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_7" />
+            <If Condition="False" DisplayName="Re-add the tab back (set to 'True')" sap2010:WorkflowViewState.IdRef="If_11">
+              <If.Then>
+                <gwa1:RunExternalCommand CommandName="ShowToolbarTabs" CommandParameter="[strToolItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_9" />
+              </If.Then>
+            </If>
+          </Sequence>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If sap2010:Annotation.AnnotationText="This section tests removing and re-adding tab groups to the standard 'Full' Toolbar.  Change the 'If' condition to 'True' to test" Condition="False" DisplayName="Full Toolbar - Groups" sap2010:WorkflowViewState.IdRef="If_9">
+      <If.Then>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Assign sap2010:Annotation.AnnotationText="Remove the 'Tools &gt;&gt; Home' group from the Full Toobar" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s2:String[]">[strToolItemArray]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s2:String[]">[New String(){ "@language-toolbar-group-tools:@language-toolbar-group-home" }]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <gwa1:RunExternalCommand CommandName="HideToolbarGroups" CommandParameter="[strToolItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_10" />
+          <If Condition="False" DisplayName="Re-add the group back (set to 'True')" sap2010:WorkflowViewState.IdRef="If_12">
+            <If.Then>
+              <gwa1:RunExternalCommand CommandName="ShowToolbarGroups" CommandParameter="[strToolItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_11" />
+            </If.Then>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If sap2010:Annotation.AnnotationText="This section tests removing and re-adding individual tab items (whether in a group or within the tab) to the standard 'Full' Toolbar.  Change the 'If' condition to 'True' to test" Condition="False" DisplayName="Full Toolbar - Items" sap2010:WorkflowViewState.IdRef="If_10">
+      <If.Then>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Assign sap2010:Annotation.AnnotationText="Remove the 'Tools &gt;&gt; Home &gt;&gt; Home' item from the Full Toobar" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s2:String[]">[strToolItemArray]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s2:String[]">[New String(){ "@language-toolbar-group-tools:@language-toolbar-group-home:@language-toolbar-home-sub" }]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <gwa1:RunExternalCommand CommandName="HideToolbarItems" CommandParameter="[strToolItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_12" />
+          <If Condition="False" DisplayName="Re-add the item back (set to 'True')" sap2010:WorkflowViewState.IdRef="If_14">
+            <If.Then>
+              <gwa1:RunExternalCommand CommandName="ShowToolbarItems" CommandParameter="[strToolItemArray]" sap2010:WorkflowViewState.IdRef="RunExternalCommand_13" />
+            </If.Then>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
+    <gwa1:ExitWorkflow sap2010:WorkflowViewState.IdRef="ExitWorkflow_1" />
+    <sads:DebugSymbol.Symbol>d3xDOlxQcm9ncmFtIEZpbGVzICh4ODYpXExhdGl0dWRlIEdlb2dyYXBoaWNzXEdlb2NvcnRleCBFc3NlbnRpYWxzXERlZmF1bHRcUkVTVCBFbGVtZW50c1xTaXRlc1xXb3JrZmxvd3NcVGVzdE1lbnVXb3JrZmxvdy54YW1sV0oDywEOAgEBTwViCgIBWWMFdgoCAUh3BYoBCgIBN4sBBaABCgIBJaEBBbQBCgIBFLUBBcgBCgIBA8kBBckBSwIBAk+wAU+3AQIBWlEJYBQCAVtj+wFjggICAUllCXQUAgFKd8cCd84CAgE4eQmIARQCATmLAbMBiwG6AQIBJo0BCZ4BFAIBJ6EBuQGhAcABAgEVowEJsgEUAgEWtQHqAbUB8QECAQS3AQnGARQCAQVSC1kUAgFmWgtapgECAWJbC18QAgFcZgttFAIBVW4LbqUBAgFRbwtzEAIBS3oLgQEUAgFEggELggGiAQIBQIMBC4cBEAIBOo4BC50BFgIBKKQBC6sBFAIBIawBC6wBpAECAR2tAQuxARACARe4AQu/ARQCARDAAQvAAaMBAgEMwQELxQEQAgEGVzlXjAECAWlUOlRMAgFnWlhabAIBZFowWkYCAWNbGVsgAgFdXQ9dqgECAV5rOWuaAQIBWGg6aEwCAVZuV25rAgFTbjBuRQIBUm8ZbyACAUxxD3GpAQIBTX85f5YBAgFHfDp8TAIBRYIBVIIBaAIBQoIBMIIBQgIBQYMBGYMBIAIBO4UBD4UBpgECATyPAQ2WARYCATOXAQ2XAaMBAgEvmAENnAESAgEpqQE5qQGHAQIBJKYBOqYBTAIBIqwBVawBaQIBH6wBMKwBQwIBHq0BGa0BIAIBGK8BD68BqAECARm9ATm9AaIBAgETugE6ugFMAgERwAFUwAFoAgEOwAEwwAFCAgENwQEZwQEgAgEHwwEPwwGnAQIBCF1cXXACAWBdNF1KAgFfcVtxbwIBT3E0cUkCAU6FAViFAWwCAT6FATSFAUYCAT2UATuUAWwCATaRATyRAU4CATSXAVWXAWkCATGXATKXAUMCATCYARuYASICASqaARGaAacBAgErrwFZrwFtAgEbrwE0rwFHAgEawwFYwwFsAgEKwwE0wwFGAgEJmgFZmgFtAgEtmgE2mgFHAgEs</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="464,115">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="RunExternalCommand_1" sap:VirtualizedContainerService.HintSize="464,86" />
+      <sap2010:ViewStateData Id="RunExternalCommand_2" sap:VirtualizedContainerService.HintSize="319,86" />
+      <sap2010:ViewStateData Id="If_4" sap:VirtualizedContainerService.HintSize="464,234" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="486,639">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="200,121">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="464,115">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="RunExternalCommand_3" sap:VirtualizedContainerService.HintSize="464,86" />
+      <sap2010:ViewStateData Id="RunExternalCommand_4" sap:VirtualizedContainerService.HintSize="319,86" />
+      <sap2010:ViewStateData Id="If_5" sap:VirtualizedContainerService.HintSize="464,234" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="486,639">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="200,166">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="464,115">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="RunExternalCommand_5" sap:VirtualizedContainerService.HintSize="464,86" />
+      <sap2010:ViewStateData Id="RunExternalCommand_8" sap:VirtualizedContainerService.HintSize="319,86" />
+      <sap2010:ViewStateData Id="If_13" sap:VirtualizedContainerService.HintSize="464,234" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="486,639">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="200,211">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="464,100">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="RunExternalCommand_7" sap:VirtualizedContainerService.HintSize="464,86" />
+      <sap2010:ViewStateData Id="RunExternalCommand_9" sap:VirtualizedContainerService.HintSize="319,86" />
+      <sap2010:ViewStateData Id="If_11" sap:VirtualizedContainerService.HintSize="464,234" />
+      <sap2010:ViewStateData Id="Sequence_8" sap:VirtualizedContainerService.HintSize="486,624">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="508,748">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_6" sap:VirtualizedContainerService.HintSize="200,136">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_7" sap:VirtualizedContainerService.HintSize="464,100">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="RunExternalCommand_10" sap:VirtualizedContainerService.HintSize="464,86" />
+      <sap2010:ViewStateData Id="RunExternalCommand_11" sap:VirtualizedContainerService.HintSize="319,86" />
+      <sap2010:ViewStateData Id="If_12" sap:VirtualizedContainerService.HintSize="464,234" />
+      <sap2010:ViewStateData Id="Sequence_9" sap:VirtualizedContainerService.HintSize="486,624">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_9" sap:VirtualizedContainerService.HintSize="200,136">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="464,100">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="RunExternalCommand_12" sap:VirtualizedContainerService.HintSize="464,86" />
+      <sap2010:ViewStateData Id="RunExternalCommand_13" sap:VirtualizedContainerService.HintSize="319,86" />
+      <sap2010:ViewStateData Id="If_14" sap:VirtualizedContainerService.HintSize="464,234" />
+      <sap2010:ViewStateData Id="Sequence_10" sap:VirtualizedContainerService.HintSize="486,624">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_10" sap:VirtualizedContainerService.HintSize="200,166">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExitWorkflow_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,1437">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ActivityBuilder_1" sap:VirtualizedContainerService.HintSize="262,1517" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
