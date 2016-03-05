@@ -4,7 +4,57 @@ Javascript library to manipulate the addition and remove of menu items within th
 
 ## Installation
 
-TODO: Describe the installation process
+This JavaScript module can be installed either within the default HTML5 viewer or within a specific site.
+
+**Viewer Installation and Configuration:**
+
+**Site Installation and Configuration:**
+
+1. Locate your Geocortex HTML5 Site directory, typically found at `C:\Program Files (x86)\Latitude Geographics\Geocortex Essentials\Default\REST Elements\Sites\`
+2. Navigate to the Site HTML5 Virtual Directory, typically found at `...\YourSiteName\Viewers\YourHTML5ViewerName\VirtualDirectory\`
+3. In the Resources directory create a new directory called CustomScripts
+4. Copy the MenuComponents.js file into the CustomScripts directory
+5. Next locate the Desktop, Tablet, and Handheld configuration files, typically located at \Resources\Config\Default\ directory.
+6. Repeat the following steps for all three configuration files:
+	1. Make a backup of the configuration file!
+	2. Within the libraries section add the following code:
+
+        {
+          "id": "MenuComponents",
+            "uri": "{ViewerConfigUri}../../Custom Scripts/MenuComponents.js",
+            "locales":[
+            ]
+        }
+
+    3. Within the libraries section add the following code:
+
+    {
+      "moduleName": "MenuComponents",
+      "moduleType": "dds.menuComponents.MenuComponentsModule",
+      "libraryId": "MenuComponents",
+      "configuration": {
+      },
+      "views": [
+        {
+          "id": "MenuComponentsModuleView",
+          "viewModelId": "MenuComponentsModuleViewModel",
+          "visible": false,
+          "markup": "Modules/View/MenuComponentsModuleView.html",
+          "type": "dds.menuComponents.MenuComponentsModuleView",
+          "region": "TopRightMapRegion",
+          "configuration": {
+          }
+        }
+      ],
+      "viewModels": [
+        {
+          "id": "MenuComponentsModuleViewModel",
+          "type": "dds.menuComponents.MenuComponentsModuleViewModel",
+          "configuration": {}
+        }
+      ]
+    },
+
 
 ## Usage
 
@@ -20,26 +70,7 @@ Copyright &copy; 2016 [Digital Data Services, Inc.](http://www.digitaldataservic
 
 Geocortex and Latitude Geographics are registered trademarks of Latitude Geographics Group Ltd. in the United States and Canada, and are trademarks in other jurisdictions around the world.
 
-## Contact
-
-This is provided free to 
-
 ## License
-
-This is free and unencumbered software released into the public domain.
-
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
-
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
@@ -49,4 +80,3 @@ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-For more information, please refer to <http://unlicense.org>
