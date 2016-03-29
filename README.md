@@ -22,7 +22,7 @@ This JavaScript module can be installed in either the Geocortex HTML5 Viewer or 
 1. Locate your Geocortex HTML5 directory, typically found at 
 `C:\inetpub\wwwroot\Html5Viewer\`
 2. Navigate to the `...\Resources\Scripts\` folder and create a new directory called `CustomScripts`
-4. Copy the [`MenuComponents.js`](https://raw.githubusercontent.com/DigitalDataServices/GeocortexMenuComponents/master/MenuComponents.js) file into the `CustomScripts` directory
+
 
 **Site Specific Installation** - For only a specific Geocortex site.
 
@@ -31,10 +31,11 @@ This JavaScript module can be installed in either the Geocortex HTML5 Viewer or 
 2. Navigate to the Site HTML5 Virtual Directory, typically found at 
 `...\YourSiteName\Viewers\YourHTML5ViewerName\VirtualDirectory\`
 3. In the `Resources` directory create a new directory called `CustomScripts`
+
+
+**Configure Viewers for both Viewer and Site Specific Installations**
+
 4. Copy the [`MenuComponents.js`](https://raw.githubusercontent.com/DigitalDataServices/GeocortexMenuComponents/master/MenuComponents.js) file into the `CustomScripts` directory
-
-**Configure Viewers**
-
 5. Next locate the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located at 
 `...\Resources\Config\Default\` directory.
 6. Repeat the following steps for all three configuration files (`Desktop`, `Tablet`, and `Handheld`):
@@ -92,16 +93,20 @@ A Geocortex Workflow ([TestMenuWorkflow.xaml](https://raw.githubusercontent.com/
 
 **Commands**
 
-| Command | Parameter | Description |
+| Command | Parameter | Parameter Example | Description |
 | --- | --- | --- |
-| HideIWantToMenuItems | String[] | Hides menu items |
-| ShowIWantToMenuItems | String[] | Shows menu items |
+| HideIWantToMenuItems | `String[]` | `New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }` | Hides menu items |
+| ShowIWantToMenuItems | `String[]` | `New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }` | Shows menu items |
 
 
 **Example**
 
-1. In the Workflow Designer, create a new string array variable (String[])
-2. Initialize the String[]  with a comma-separated list of the menu item names that you want to either hide or show. The menu item names can be found by locating the Text field that corresponds to the "I Want To..." menu item while editing that item in the Geocortex Essentials Manager.
+1. In the Workflow Designer, create a new string array variable (`String[]`)
+2. Initialize the `String[]`  with a comma-separated list of the menu item names that you want to either hide or show. 
+    ```
+    New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }
+    ```
+The menu item names can be found by locating the Text field that corresponds to the "I Want To..." menu item while editing that item in the Geocortex Essentials Manager.
 3. This will hide or show the "View the Home Panel" and "Return to Initial Map Extent" menu items
 4. To hide 
 
