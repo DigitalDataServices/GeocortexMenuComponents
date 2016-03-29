@@ -90,28 +90,50 @@ A Geocortex Workflow ([TestMenuWorkflow.xaml](https://raw.githubusercontent.com/
 
 ####"I Want to..." Menu####
 
+**Commands**
+
+| Command | Parameter | Parameter Example | Description |
+| --- | --- | --- |
+| `HideIWantToMenuItems` | `String[]` | `New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }` | Hides I Want To... menu items |
+| `ShowIWantToMenuItems` | `String[]` | `New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }` | Shows I Want To... menu items |
+
+**Example**
+
+1. In the Workflow Designer, create a new string array variable (e.g. `strMenuItemArray = String[]`)
+2. Assign the `String[]` with a comma-separated list of the menu item names that you want to either hide or show. *The menu item names can be found by locating the Text field that corresponds to the "I Want To..." menu item while editing that item in the Geocortex Essentials Manager.*
+
+    ```
+    //This will hide or show the "View the Home Panel" and "Return to Initial Map Extent" menu items
+    strMenuItemArray = New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }
+    ```
+
+4. Next call a `RunExternalCommand` using either the `HideIWantToMenuItems` or `ShowIWantToMenuItems` as the "Command Name" with `strMenuItemArray` as the "Command Parameter".
+5. The "I Want To..." menu items can be shown or hidden as needed during a Viewer session, such as based on whether a user is a Guest or in a specific Role.
+
+####"Results" Menu####
 
 **Commands**
 
 | Command | Parameter | Parameter Example | Description |
 | --- | --- | --- |
-| HideIWantToMenuItems | `String[]` | `New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }` | Hides menu items |
-| ShowIWantToMenuItems | `String[]` | `New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }` | Shows menu items |
-
+| `HideResultMenuItems` | `String[]` | `New String(){ "@language-menu-export-results-to-shp" }` | Hides Results menu items |
+| `ShowResultMenuItems` | `String[]` | `New String(){ "@language-menu-export-results-to-shp" }` | Shows Results menu items |
 
 **Example**
 
-1. In the Workflow Designer, create a new string array variable (`String[]`)
-2. Initialize the `String[]`  with a comma-separated list of the menu item names that you want to either hide or show. 
-    ```
-    New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }
-    ```
-The menu item names can be found by locating the Text field that corresponds to the "I Want To..." menu item while editing that item in the Geocortex Essentials Manager.
-3. This will hide or show the "View the Home Panel" and "Return to Initial Map Extent" menu items
-4. To hide 
+Follow the same steps as for hiding or showing an item from the "I Want To..." Menu (listed above) but change the Command Name and Parameters accordingly.
 
+To find the names of the Results menu items, you will need to open on of the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located in `...\Resources\Config\Default\` directory. Search for the ResultsListActions and use the "text" property within the "items" array. The default Results List Actions are:
 
-####"Results" Menu####
+| Action | Description |
+| --- | --- |
+| `@language-results-toggle-table-view` | Toggles Results list to Results Table |
+| `@language-menu-identify-buffered-feature-set-collection` | |
+| `@language-menu-show-charting-view` | |
+| `@language-menu-export-results-to-csv` | Exports Results List to CSV file |
+| `@language-menu-export-results-to-xlsx` | Exports Results List to Microsoft Excel (xlsx) file |
+| `@language-menu-export-results-to-shp` | Exports Results List to Esri Shapefile (shp) |
+| `@language-menu-run-report` | Runs Report on Results List, if reports are configured |
 
 ####"Compact" Toolbar####
 
