@@ -93,7 +93,7 @@ A Geocortex Workflow ([TestMenuWorkflow.xaml](https://raw.githubusercontent.com/
 **Commands**
 
 | Command | Parameter | Parameter Example | Description |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | `HideIWantToMenuItems` | `String[]` | `New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }` | Hides I Want To... menu items |
 | `ShowIWantToMenuItems` | `String[]` | `New String(){ "@language-menu-home-panel", "@language-menu-zoom-initial-extent" }` | Shows I Want To... menu items |
 
@@ -115,7 +115,7 @@ A Geocortex Workflow ([TestMenuWorkflow.xaml](https://raw.githubusercontent.com/
 **Commands**
 
 | Command | Parameter | Parameter Example | Description |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | `HideResultMenuItems` | `String[]` | `New String(){ "@language-menu-export-results-to-shp" }` | Hides Results menu items |
 | `ShowResultMenuItems` | `String[]` | `New String(){ "@language-menu-export-results-to-shp" }` | Shows Results menu items |
 
@@ -125,11 +125,11 @@ Follow the same steps as for hiding or showing an item from the "I Want To..." M
 
 To find the names of the Results menu items, you will need to open on of the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located in `...\Resources\Config\Default\` directory. Search for the ResultsListActions and use the "text" property within the "items" array. The default Results List Actions are:
 
-| Action | Description |
+| Default Action | Description |
 | --- | --- |
-| `@language-results-toggle-table-view` | Toggles Results list to Results Table |
-| `@language-menu-identify-buffered-feature-set-collection` | |
-| `@language-menu-show-charting-view` | |
+| `@language-results-toggle-table-view` | Switch to Results List to Results Table |
+| `@language-menu-identify-buffered-feature-set-collection` | Shows the Buffer Options |
+| `@language-menu-show-charting-view` | Shows the Charting View |
 | `@language-menu-export-results-to-csv` | Exports Results List to CSV file |
 | `@language-menu-export-results-to-xlsx` | Exports Results List to Microsoft Excel (xlsx) file |
 | `@language-menu-export-results-to-shp` | Exports Results List to Esri Shapefile (shp) |
