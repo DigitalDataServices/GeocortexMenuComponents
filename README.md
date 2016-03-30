@@ -245,7 +245,7 @@ In a full toolbar, you can hide or show tabs, groups, or individual items.
 
 ## Credits
 
-Copyright &copy; 2016 [Digital Data Services, Inc.](http://www.digitaldataservices.com/geocortex). All Rights Reserved.
+Copyright &copy; 2016 [Digital Data Services, Inc.](http://www.digitaldataservices.com/geocortex) All Rights Reserved.
 
 Geocortex and Latitude Geographics are registered trademarks of Latitude Geographics Group Ltd. in the United States and Canada, and are trademarks in other jurisdictions around the world.
 
