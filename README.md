@@ -137,9 +137,9 @@ This command hides or shows Results List Actions from both the List View and the
 
 Follow the same steps as for hiding or showing an item from the ["I Want To..." Menu](#i-want-to-menu) (listed above) but change the Command Name and Parameters accordingly.
 
-To find the names of the Results menu items, you will need to open on of the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located in `...\Resources\Config\Default\` directory. Search for the `ResultsListActions` and use the `"text"` property within the `"items"` array. The default Results List Actions are:
+To find the names of the Results menu items, you will need to open one of the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located in `...\Resources\Config\Default\` directory. Search for the `ResultsListActions` and use the `"text"` property within the `"items"` array. The default Geocortex Results List Actions are:
 
-| Default Action | Description |
+| Default Results List Action | Description |
 | --- | --- |
 | `@language-results-toggle-table-view` | Switch to Results List to Results Table |
 | `@language-menu-identify-buffered-feature-set-collection` | Shows the Buffer Options |
@@ -151,7 +151,7 @@ To find the names of the Results menu items, you will need to open on of the `De
 
 ####Compact Toolbar####
 
-The Compact Toolbar only contains individual items. It does not use Tabs or Groups like the Full Toolbar.
+The Compact Toolbar only contains individual items. It does not use Tabs or Groups like the [Full Toolbar](#full-toolbar) below.
 
 **Commands**
 
@@ -161,6 +161,17 @@ The Compact Toolbar only contains individual items. It does not use Tabs or Grou
 | `ShowToolbarItems` | `String[]` | `New String(){ "@language-toolbar-home-sub", "@language-toolbar-navigation-initial-extent"  }` | Shows Toolbar items |
 
 **Example**
+
+1. In the Workflow Designer, create a new string array variable (e.g. `strToolItemArray = String[]`)
+2. Assign the `String[]` with a comma-separated list of the toolbar item names that you want to either hide or show. *The compact toolbar item names can be found by locating the `Name` field while editing that item in the Geocortex Essentials Manager.*
+
+    ```
+    //This will hide or show the "Home" and "Initial View" toolbar items
+    strToolItemArray = New String(){ "@language-toolbar-home-sub", "@language-toolbar-navigation-initial-extent"  }
+    ```
+
+4. Next call a `RunExternalCommand` using either the `HideToolbarItems` or `ShowToolbarItems` as the "Command Name" with `strToolItemArray` as the "Command Parameter".
+
 
 ####Full Toolbar####
 
@@ -177,7 +188,44 @@ In a full toolbar, you can hide or show tabs, groups, or individual items.
 | `ShowToolbarItems` | `String[]` | `New String(){ "@language-toolbar-group-tools:@language-toolbar-group-navigation:@language-toolbar-bookmark"  }` | Shows Toolbar items |
 | `ShowToolbarTabs` | `String[]` | `New String(){ "@language-toolbar-group-tools"  }` | Shows Toolbar tabs |
 
-**Example**
+**Tab Example**
+
+1. In the Workflow Designer, create a new string array variable (e.g. `strToolbarTabArray = String[]`)
+2. Assign the `String[]` with a comma-separated list of the toolbar tab names that you want to either hide or show. *The full toolbar tab name can be found by locating the `Display Name` field while editing the toolbar in the Geocortex Essentials Manager. For example, the Home tab's display name is `@language-toolbar-tab-home`. You can also use `Home` (the translated string name), but it is not recommended if you are using localization.*
+
+    ```
+    //This will hide or show the "Home" tab
+    strToolbarTabArray = New String(){ "@language-toolbar-tab-home" }
+    ```
+
+4. Next call a `RunExternalCommand` using either the `HideToolbarTabs` or `ShowToolbarTabs` as the "Command Name" with `strToolbarTabArray` as the "Command Parameter".
+5. Please note that if all the Toolbar tabs are removed, the Toolbar button will not be displayed.
+
+**Group Example**
+
+1. In the Workflow Designer, create a new string array variable (e.g. `strToolbarGroupArray = String[]`)
+2. Assign the `String[]` with a comma-separated list of the toolbar group names that you want to either hide or show.
+3. The formatting for the tab:group string pairing is as follows: `Tab(name):Group(name)`. So, for example, to hide or show the Navigation group from the Home tab, the input string would look like this:
+
+    ```
+    //This will hide or show the "Navigation" group in the "Home" tab
+    strToolbarTabArray’ = New String(){ "@language-toolbar-tab-home:@language-toolbar-group-navigation" }
+    ```
+
+4. Next call a `RunExternalCommand` using either the `HideToolbarGroups` or `ShowToolbarGroups` as the "Command Name" with `strToolbarTabArray’` as the "Command Parameter".
+
+**Item Example**
+
+1. In the Workflow Designer, create a new string array variable (e.g. `strToolbarItemArray = String[]`)
+2. Assign the `String[]` with a comma-separated list of the toolbar item names that you want to either hide or show.
+3. The formatting for the tab:group:item string pairing is as follows: `Tab(name):Group(name):Item(name)` or `Tab(name):NONE:Item(name)` (if the item is not a member of a group). So, for example, to hide or show the Bookmarks item from the Navigation group in the Home tab, the input string would look like this:
+
+    ```
+    //This will hide or show the "Bookmarks" item from the "Navigation" group in the "Home" tab
+    strToolbarItemArray = New String(){ "@language-toolbar-tab-home:@language-toolbar-group-navigation:@language-toolbar-bookmark" }
+    ```
+
+4. Next call a `RunExternalCommand` using either the `HideToolbarItems` or `ShowToolbarItems` as the "Command Name" with `strToolbarItemArray’` as the "Command Parameter".
 
 ## History
 
