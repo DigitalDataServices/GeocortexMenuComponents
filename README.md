@@ -1,6 +1,6 @@
 # Geocortex Menu Components
 
-JavaScript library to hide or show menu items and/or toolbar components within the Geocortex Viewer for HTML5. This library requires that the components being removed exist within the site. Components are not dynamically added only temporarily hidden.
+JavaScript library for the Geocortex Viewer for HTML5 to hide or show menu items and/or toolbar components. This library requires that the components being removed exist within the site. Components are not dynamically added only temporarily hidden.
 
 Hide and Show the following items in Geocortex Sites:
 
@@ -17,7 +17,7 @@ Geocortex Essentials 4.4.3 and Geocortex Viewer for HTML5 2.5.2 and tested on be
 
 * [Installation](#installation)
 * [Usage](#usage)
-	* [I Want To... Menu](#i-want-to...-menu)
+	* [I Want To... Menu](#i-want-to-menu)
 	* [Results Menu](#results-menu)
 	* [Compact Toolbar](#compact-toolbar)
 	* [Full Toolbar](#full-toolbar)
@@ -135,7 +135,7 @@ This command hides or shows Results List Actions from both the List View and the
 
 **Example**
 
-Follow the same steps as for hiding or showing an item from the ["I Want To..." Menu](#i-want-to...-menu) (listed above) but change the Command Name and Parameters accordingly.
+Follow the same steps as for hiding or showing an item from the ["I Want To..." Menu](#i-want-to-menu) (listed above) but change the Command Name and Parameters accordingly.
 
 To find the names of the Results menu items, you will need to open on of the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located in `...\Resources\Config\Default\` directory. Search for the `ResultsListActions` and use the `"text"` property within the `"items"` array. The default Results List Actions are:
 
@@ -157,16 +157,32 @@ The Compact Toolbar only contains individual items. It does not use Tabs or Grou
 
 | Command | Parameter | Parameter Example | Description |
 | --- | --- | --- | --- |
-| `HideResultMenuItems` | `String[]` | `New String(){ "@language-menu-export-results-to-shp" }` | Hides Results menu items |
-| `ShowResultMenuItems` | `String[]` | `New String(){ "@language-menu-export-results-to-shp" }` | Shows Results menu items |
+| `HideToolbarItems` | `String[]` | `New String(){ "@language-toolbar-home-sub", "@language-toolbar-navigation-initial-extent"  }` | Hides Toolbar items |
+| `ShowToolbarItems` | `String[]` | `New String(){ "@language-toolbar-home-sub", "@language-toolbar-navigation-initial-extent"  }` | Shows Toolbar items |
 
 **Example**
 
 ####Full Toolbar####
 
+In a full toolbar, you can hide or show tabs, groups, or individual items.
+
+**Commands**
+
+| Command | Parameter | Parameter Example | Description |
+| --- | --- | --- | --- |
+| `HideToolbarGroups` | `String[]` | `New String(){ "@language-toolbar-group-tools:@language-toolbar-group-navigation"   }` | Hides Toolbar groups |
+| `HideToolbarItems` | `String[]` | `New String(){ "@language-toolbar-group-tools:@language-toolbar-group-navigation:@language-toolbar-bookmark"  }` | Hides Toolbar items |
+| `HideToolbarTabs` | `String[]` | `New String(){ "@language-toolbar-group-tools"  }` | Hides Toolbar tabs |
+| `ShowToolbarGroups` | `String[]` | `New String(){ "@language-toolbar-group-tools:@language-toolbar-group-navigation"  }` | Shows Toolbar groups |
+| `ShowToolbarItems` | `String[]` | `New String(){ "@language-toolbar-group-tools:@language-toolbar-group-navigation:@language-toolbar-bookmark"  }` | Shows Toolbar items |
+| `ShowToolbarTabs` | `String[]` | `New String(){ "@language-toolbar-group-tools"  }` | Shows Toolbar tabs |
+
+**Example**
+
 ## History
 
 2016-04-01 - Initial upload.
+
 
 ## Credits
 
