@@ -1,8 +1,8 @@
 # Geocortex Menu Components
 
-JavaScript library for the Geocortex Viewer for HTML5 to hide or show menu items and/or toolbar components. This library requires that the components being removed exist within the site. Components are not dynamically added only temporarily hidden.
+JavaScript library for the Geocortex Viewer for HTML5 to hide or show menu items and/or toolbar components. This library requires that the components being removed to exist within the Geocortex Viewer for HTML5. Components are not dynamically added, only temporarily hidden.
 
-Hide and Show the following items in Geocortex Sites:
+Hide and Show the following items in Geocortex Viewer for HTML5:
 
 * I Want To... Menu items
 * Results Menu items
@@ -27,16 +27,16 @@ Geocortex Essentials 4.4.3 and Geocortex Viewer for HTML5 2.5.2 and tested on be
 
 ## Installation
 
-This JavaScript module can be installed in either the Geocortex HTML5 Viewer or within a specific site's viewer.
+This JavaScript module can be installed in either a Geocortex HTML5 Viewer or within a specific site's viewer.
 
-**Geocortex HTML5 Viewer Installation** - Available to all Geocortex sites.
+**Geocortex HTML5 Viewer Installation** - Available to all Geocortex HTML5 Viewers.
 
 1. Locate your Geocortex HTML5 directory, typically found at 
 `C:\inetpub\wwwroot\Html5Viewer\`
 2. Navigate to the `...\Resources\Scripts\` folder and create a new directory called `CustomScripts`
 
 
-**Site Specific Installation** - For only a specific Geocortex site.
+**Site Specific Installation** - For only a specific Geocortex HTML5 Viewer.
 
 1. Locate your Geocortex HTML5 Site directory, typically found at 
 `C:\Program Files (x86)\Latitude Geographics\Geocortex Essentials\Default\REST Elements\Sites\`
@@ -47,15 +47,26 @@ This JavaScript module can be installed in either the Geocortex HTML5 Viewer or 
 
 **Configure Viewers for both Viewer and Site Specific Installations**
 
-4. Copy the [`MenuComponents.js`](https://raw.githubusercontent.com/DigitalDataServices/GeocortexMenuComponents/master/MenuComponents.js) file into the `CustomScripts` directory
-5. Next locate the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located at 
+1. Copy the [`MenuComponents.js`](https://raw.githubusercontent.com/DigitalDataServices/GeocortexMenuComponents/master/MenuComponents.js) file into the `CustomScripts` directory.
+2. Next locate the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located at 
 `...\Resources\Config\Default\` directory.
-6. Repeat the following steps for all three configuration files (`Desktop`, `Tablet`, and `Handheld`):
+3. Repeat the following steps for all three configuration files (`Desktop`, `Tablet`, and `Handheld`):
 	1. Make a backup of the configuration file!
-	2. Open the configuration file in a file editor of your choice, such as Notepad++
-	3. Within the `libraries` section add the following code where the `uri` is the relative path to the `MenuComponents.js` file.
+	2. Open the configuration file in a file editor of your choice, such as [Notepad++](https://notepad-plus-plus.org/).
+	3. Within the `libraries` section add the following code where the `uri` is the relative path to the `MenuComponents.js` file using the appropriate code for your installation:
 
         ```
+		//Path if using a Geocortex HTML5 Viewer Installation
+		{
+		  "id": "MenuComponents",
+		    "uri": "Resources/Scripts/Custom Scripts/MenuComponents.js",
+		    "locales":[
+		    ]
+		}
+        ```
+
+        ```
+		//Path if using a Site Specific Installation
         {
           "id": "MenuComponents",
             "uri": "{ViewerConfigUri}../../Custom Scripts/MenuComponents.js",
@@ -229,7 +240,7 @@ In a full toolbar, you can hide or show tabs, groups, or individual items.
 
 ## History
 
-2016-04-01 - Initial upload.
+2016-03-30 - Initial upload.
 
 
 ## Credits
