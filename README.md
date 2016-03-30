@@ -15,15 +15,15 @@ Geocortex Essentials 4.4.3 and Geocortex Viewer for HTML5 2.5.2 and tested on be
 
 ## Table of Contents
 
-* [Installation](#Installation)
-* [Usage](#Usage)
-	* [I Want To... Menu](#IWantTo...Menu)
-	* [Results Menu](#ResultsMenu)
-	* [Compact Toolbar](#CompactToolbar)
-	* [Full Toolbar](#FullToolbar)
-* [History](#History)
-* [Credits](#Credits)
-* [License](#License)
+* [Installation](#installation)
+* [Usage](#usage)
+	* [I Want To... Menu](#iwanto...nenu)
+	* [Results Menu](#resultsmenu)
+	* [Compact Toolbar](#compacttoolbar)
+	* [Full Toolbar](#fulltoolbar)
+* [History](#history)
+* [Credits](#credits)
+* [License](#license)
 
 ## Installation
 
@@ -135,7 +135,7 @@ This command hides or shows Results List Actions from both the List View and the
 
 **Example**
 
-Follow the same steps as for hiding or showing an item from the ["I Want To..." Menu](#IWantto...Menu) (listed above) but change the Command Name and Parameters accordingly.
+Follow the same steps as for hiding or showing an item from the ["I Want To..." Menu](#iwantto...menu) (listed above) but change the Command Name and Parameters accordingly.
 
 To find the names of the Results menu items, you will need to open on of the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located in `...\Resources\Config\Default\` directory. Search for the `ResultsListActions` and use the `"text"` property within the `"items"` array. The default Results List Actions are:
 
