@@ -220,10 +220,10 @@ In a full toolbar, you can hide or show tabs, groups, or individual items.
 
     ```
     //This will hide or show the "Navigation" group in the "Home" tab
-    strToolbarTabArray’ = New String(){ "@language-toolbar-tab-home:@language-toolbar-group-navigation" }
+    strToolbarGroupArray = New String(){ "@language-toolbar-tab-home:@language-toolbar-group-navigation" }
     ```
 
-4. Next call a `RunExternalCommand` using either the `HideToolbarGroups` or `ShowToolbarGroups` as the "Command Name" with `strToolbarTabArray’` as the "Command Parameter".
+4. Next call a `RunExternalCommand` using either the `HideToolbarGroups` or `ShowToolbarGroups` as the "Command Name" with `strToolbarGroupArray` as the "Command Parameter".
 
 **Item Example**
 
