@@ -13,6 +13,18 @@ Hide and Show the following items in Geocortex Sites:
 
 Geocortex Essentials 4.4.3 and Geocortex Viewer for HTML5 2.5.2 and tested on beta versions of Geocortex Essentials 4.5 and Geocortex Viewer for HTML5 2.6. It may run on earlier versions of Geocortex Essentials and Geocortex Viewer for HTML5 but has not been tested.
 
+## Table of Contents
+
+* [Installation](#Installation)
+* [Usage](#Usage)
+	* [I Want To... Menu](#IWantTo...Menu)
+	* [Results Menu](#ResultsMenu)
+	* [Compact Toolbar](#CompactToolbar)
+	* [Full Toolbar](#FullToolbar)
+* [History](#History)
+* [Credits](#Credits)
+* [License](#License)
+
 ## Installation
 
 This JavaScript module can be installed in either the Geocortex HTML5 Viewer or within a specific site's viewer.
@@ -88,7 +100,7 @@ This JavaScript module can be installed in either the Geocortex HTML5 Viewer or 
 
 A Geocortex Workflow ([TestMenuWorkflow.xaml](https://raw.githubusercontent.com/DigitalDataServices/GeocortexMenuComponents/master/TestMenuWorkflow.xaml)) has been provided to illustrate all of the examples below.
 
-####"I Want to..." Menu####
+####I Want to... Menu####
 
 **Commands**
 
@@ -110,7 +122,9 @@ A Geocortex Workflow ([TestMenuWorkflow.xaml](https://raw.githubusercontent.com/
 4. Next call a `RunExternalCommand` using either the `HideIWantToMenuItems` or `ShowIWantToMenuItems` as the "Command Name" with `strMenuItemArray` as the "Command Parameter".
 5. The "I Want To..." menu items can be shown or hidden as needed during a Viewer session, such as based on whether a user is a Guest or in a specific Role.
 
-####"Results" Menu####
+####Results Menu####
+
+This command hides or shows Results List Actions from both the List View and the Table View.
 
 **Commands**
 
@@ -121,9 +135,9 @@ A Geocortex Workflow ([TestMenuWorkflow.xaml](https://raw.githubusercontent.com/
 
 **Example**
 
-Follow the same steps as for hiding or showing an item from the "I Want To..." Menu (listed above) but change the Command Name and Parameters accordingly.
+Follow the same steps as for hiding or showing an item from the ["I Want To..." Menu](#IWantto...Menu) (listed above) but change the Command Name and Parameters accordingly.
 
-To find the names of the Results menu items, you will need to open on of the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located in `...\Resources\Config\Default\` directory. Search for the ResultsListActions and use the "text" property within the "items" array. The default Results List Actions are:
+To find the names of the Results menu items, you will need to open on of the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located in `...\Resources\Config\Default\` directory. Search for the `ResultsListActions` and use the `"text"` property within the `"items"` array. The default Results List Actions are:
 
 | Default Action | Description |
 | --- | --- |
@@ -135,9 +149,20 @@ To find the names of the Results menu items, you will need to open on of the `De
 | `@language-menu-export-results-to-shp` | Exports Results List to Esri Shapefile (shp) |
 | `@language-menu-run-report` | Runs Report on Results List, if reports are configured |
 
-####"Compact" Toolbar####
+####Compact Toolbar####
 
-####"Full" Toolbar####
+The Compact Toolbar only contains individual items. It does not use Tabs or Groups like the Full Toolbar.
+
+**Commands**
+
+| Command | Parameter | Parameter Example | Description |
+| --- | --- | --- | --- |
+| `HideResultMenuItems` | `String[]` | `New String(){ "@language-menu-export-results-to-shp" }` | Hides Results menu items |
+| `ShowResultMenuItems` | `String[]` | `New String(){ "@language-menu-export-results-to-shp" }` | Shows Results menu items |
+
+**Example**
+
+####Full Toolbar####
 
 ## History
 
