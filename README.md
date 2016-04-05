@@ -1,8 +1,10 @@
-# Geocortex Menu Components
+# Toggle Geocortex Menu Components
 
-JavaScript library for the Geocortex Viewer for HTML5 to hide or show menu items and/or toolbar components. This library requires that the components being removed to exist within the Geocortex Viewer for HTML5. Components are not dynamically added, only temporarily hidden.
+This free JavaScript library for the Geocortex Viewer for HTML5 adds the ability to disable or enable menu and toolbar items within the Geocortex Viewer for HTML5. 
 
-Hide and Show the following items in Geocortex Viewer for HTML5:
+Using Geocortex Workflows, menu and toolbar items can be disabled or enabled based on user credentials or interaction. Examples include disabling Export functionality from Results Menu for anonymous users, disabling and enabling toolbars based on user roles, or any other use that comes to mind. This library only disables or enables menu and toolbar items that are pre-configured within the Geocortex Site, it does not dynamically add new menu and toolbar items.
+
+**Disable and enable the following items in Geocortex Viewer for HTML5:**
 
 * I Want To... Menu items
 * Results Menu items
@@ -245,11 +247,13 @@ In a full toolbar, you can hide or show tabs, groups, or individual items.
 
 ## Credits
 
-Copyright &copy; 2016 [Digital Data Services, Inc.](http://www.digitaldataservices.com/geocortex) All Rights Reserved.
+[Digital Data Services, Inc.](http://www.digitaldataservices.com/geocortex), is a Geocortex Implementation Solution Provider and Esri Silver Business Partner that specializes in the creation, conversion, management, integration, and presentation of geospatial information. Our expertise focuses on providing simple solutions to complex business challenges and allowing our clients to leverage and explore their data in new and unique ways. As experts in research, data processing, data storage/management, data analysis, and presentation, we serve our clients by making complex analytical decisions available to everyone. Our vision is that access to geospatial information should not be a barrier to making business decisions.
 
-Geocortex and Latitude Geographics are registered trademarks of Latitude Geographics Group Ltd. in the United States and Canada, and are trademarks in other jurisdictions around the world.
+[Geocortex](http://www.geocortex.com/) and Latitude Geographics are registered trademarks of [Latitude Geographics Group Ltd.](http://www.latitudegeo.com/) in the United States and Canada, and are trademarks in other jurisdictions around the world.
 
 ## License
+
+Copyright &copy; 2016 [Digital Data Services, Inc.](http://www.digitaldataservices.com/geocortex) All Rights Reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
