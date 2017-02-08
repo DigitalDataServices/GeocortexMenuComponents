@@ -49,7 +49,7 @@ This JavaScript module can be installed in either a Geocortex HTML5 Viewer or wi
 
 **Configure Viewers for both Viewer and Site Specific Installations**
 
-1. Copy the [`MenuComponents.js`](https://raw.githubusercontent.com/DigitalDataServices/GeocortexMenuComponents/master/MenuComponents.js) file into the `CustomScripts` directory.
+1. Copy the [`MenuComponents.min.js`](https://raw.githubusercontent.com/DigitalDataServices/GeocortexMenuComponents/master/MenuComponents.min.js) file into the `CustomScripts` directory.
 2. Next locate the `Desktop`, `Tablet`, and `Handheld` configuration files, typically located at 
 `...\Resources\Config\Default\` directory.
 3. Repeat the following steps for all three configuration files (`Desktop`, `Tablet`, and `Handheld`):
